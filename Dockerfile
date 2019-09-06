@@ -11,14 +11,14 @@ RUN echo " ---> Installation de quelques outils supplementaires..." && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
     curl vim net-tools telnet wget python git openssh-server sshpass \
-    netcat-openbsd tcpdump traceroute mtr bind9-host
+    netcat-openbsd tcpdump traceroute mtr bind9-host apache2
 
 RUN echo " ---> Nettoyage après installation..."
 RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? 
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/??
 
 # Configure sshd service
-RUN echo " ---> Configuration du service ssh..." 
+RUN echo " ---> Configuration du service ssh..."
 RUN mkdir /var/run/sshd
 RUN echo 'root:ansible' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -29,8 +29,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # Allow incoming connections
-EXPOSE 22
+EXPOSE 443 80 22
 
 # Start sshd service
 CMD [ "/usr/sbin/sshd", "-D" ]
-
