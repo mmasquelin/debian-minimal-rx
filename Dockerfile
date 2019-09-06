@@ -29,7 +29,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # Allow incoming connections
-EXPOSE 443 80 22
+EXPOSE 8443 8080 22
 
 # Start sshd service
 CMD [ "/usr/sbin/sshd", "-D" ]
