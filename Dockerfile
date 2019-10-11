@@ -11,7 +11,8 @@ RUN echo " ---> Installation de quelques outils supplementaires..." && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
     curl vim net-tools telnet wget python git openssh-server sshpass \
-    netcat-openbsd tcpdump traceroute mtr bind9-host apache2
+    nghttp2 netcat-openbsd tcpdump traceroute mtr bind9-host apache2 \
+    vnstat iftop nload nethogs bmon iptraf cbm iperf3
 
 RUN echo " ---> Nettoyage après installation..."
 RUN apt-get clean
