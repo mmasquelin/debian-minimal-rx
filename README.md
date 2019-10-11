@@ -8,5 +8,5 @@ This image only contains a few system apps and an editor (VIm).
 $ docker run -it mmasquelin/debian-minimal-rx:latest bash
 `
 
-Option `-i` (or `--interactive`) keeps STDIN open even if not attached.
-Option `-t` (or `--tty`) allocates a pseudo-TTY
+ * Option `-i` (or `--interactive`) keeps STDIN open even if not attached.
+ * Option `-t` (or `--tty`) allocates a pseudo-TTY
